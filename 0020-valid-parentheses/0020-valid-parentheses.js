@@ -7,10 +7,10 @@ var isValid = function(s) {
 
   let a = [];
   for (let i = 0; i < s.length; i++) {
-    switch(s[i]){
+    switch (s[i]) {
       case '(':
-          a.push(')')
-          break;
+        a.push(')')
+        break;
       case '[':
         a.push(']')
         break;
@@ -18,20 +18,22 @@ var isValid = function(s) {
         a.push('}')
         break;
       case ')':
-        if (s[i] === ')' && a[a.length - 1] === ')'){
+        if (s[i] === ')' && a[a.length - 1] === ')') {
           a.pop()
           break;
-        } else return false;
+      }
       case ']':
-        if (s[i] === ']' && a[a.length - 1] === ']'){
+        if (s[i] === ']' && a[a.length - 1] === ']') {
           a.pop()
           break;
-        } else return false;
+        }
       case '}':
-        if (s[i] === '}' && a[a.length - 1] === '}'){
+        if (s[i] === '}' && a[a.length - 1] === '}') {
           a.pop()
           break;
-        } else return false;
+        }
+      default:
+        return false;  
     }
   }
   if (a.length === 0) return true;
